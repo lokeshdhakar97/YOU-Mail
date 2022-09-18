@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Mail</title>
+    <link rel="stylesheet" href="../stylesheets/register.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+    integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <div id="main-r">
+        <div class="left-r">
+            <div class="regisbox">
+                <div class="heading">
+                    <h3>Create an account in <span>YOU Mail</span></h3>
+                </div>
+                <form autocomplete="off" action="/register" method="post">
+                    <div class="field-r">
+                        <div class="left-field">
+                            <label for="">Full Name: </label>
+                        </div>
+                        <div class="right-field">
+                            <input type="text" name="fullname" class="input-field">
+                        </div>
+                    </div>
+                    <div class="field-r">
+                        <div class="left-field">
+                            <label for="">Username: </label>
+                        </div>
+                        <div class="right-field">
+                            <input id="username" type="text" name="username" class="input-field" required>
+                            <h6 id="alert">Username already exist..😑, Try another one</h6>
+                        </div>
+                    </div>
+                    <div class="field-r">
+                        <div class="left-field">
+                            <label for="">Email: </label>
+                        </div>
+                        <div class="right-field">
+                            <input type="email" name="email" class="input-field" required>
+                        </div>
+                    </div>
+                    <div class="field-r">
+                        <div class="left-field">
+                            <label for="">Password: </label>
+                        </div>
+                        <div class="right-field">
+                            <input type="password" name="password" class="input-field" required>
+                        </div>
+                    </div>
+                    <!-- <div class="field-r">
+                        <div class="left-field">
+                            <label for="">Contact No: </label>
+                        </div>
+                        <div class="right-field">
+                            <input type="text" name="contact" class="input-field" required>
+                        </div>
+                    </div> -->
+                    <div class="field-r">
+                        <div class="left-field">
+                            <label for="">Gender: </label>
+                        </div>
+                        <div class="right-field gender">
+                            <div class="gender-div">
+                                <input type="radio" name="gender" value="Male" checked>
+                                <label for="">Male</label>
+                            </div>
+                            <div class="gender-div">
+                                <input type="radio" name="gender" value="Female">
+                                <label for="">Female</label>
+
+                            </div>
+                            <div class="gender-div">
+                                <input type="radio" name="gender" value="Other">
+                                <label for="">Other</label>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field-r checkbox">
+                        <input type="checkbox" name="checkbox" value="true" required checked>
+                        <a href="">I have read and agree to the <span>terms of service</span></a>
+                    </div>
+                    <div class="field-r">
+                        <input type="submit" value="Sign Up">
+                    </div>
+                    <div class="field-r">
+                        <a href="/">Have an account? <span>Log In</span></a>
+                    </div>
+                </form>
+
+            </div>
+            <img src="../images/singup.png" alt="">
+        </div>
+    </div>
+    <script>
+        document.querySelector("#username").addEventListener("input", function () {
+            if (this.value.trim().length > 0) {
+                axios.get(`/check/${this.value.trim()}`).then(function (user) {
+                    if (user.data !== null) {
+                        document.querySelector("#username").style.borderBottom = "2px solid red";
+                        document.querySelector("#alert").style.display = "initial";
+                    } else {
+                        document.querySelector("#username").style.borderBottom = "2px solid rgb(237, 25, 198)";
+                        document.querySelector("#alert").style.display = "none";
+                    }
+                })
+            }
+        });
+    </script>
+  
+</body>
+
+</html>

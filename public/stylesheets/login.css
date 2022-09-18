@@ -1,0 +1,105 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: Gilroy;
+}
+* a{
+  color: black;
+  cursor: text;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to right, #F9E7FE, #DAFCFC);
+}
+
+#hero {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  backdrop-filter: blur(4.7px);
+  -webkit-backdrop-filter: blur(4.7px);
+}
+#loginbox {
+  min-width: 30%;
+  min-height: 40%;
+  padding: 10px;
+  /* background-color: brown; */
+}
+#loginbox h2 span{
+  font-weight: 100;
+  font-family: Righteous;
+  color: rgb(237, 25, 198);
+}
+form{
+  margin-top: 20px;
+}
+.field{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 8vh;
+  margin-top: 10px;
+  /* background-color: blue; */
+}
+.label-field{
+  display: flex;
+  align-items: center;
+  width: 30%;
+  height: 100%;
+  font-family: cursive;
+  padding-right: 10px;
+  /* background-color: red; */
+}
+.input-field{
+  display: flex;
+  align-items: center;
+  width: 65%;
+  height: 100%;
+  /* background-color: yellow; */
+}
+.infield{
+  width: 100%;
+  height: 45%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 4px 6px;
+  border-bottom: 2px solid rgb(237, 25, 198);
+}
+input[type = submit]{
+  margin-top: 8px;
+  border: none;
+  background-color: rgb(237, 25, 198);
+  padding: 0px 20px;
+  font-weight: 900;
+  height: 75%;
+  border-radius: 5px;
+  font-size: 13px;
+  cursor: pointer;
+  color: white;
+}
+.field a span{
+  color: rgb(3, 3, 255);
+  cursor: pointer;
+  font-weight: 900;
+}
+#hero img {
+  /* background-color: aqua; */
+  margin-left: 5vw;
+  height: 40vw;
+}
+@media (max-width: 500px) {
+  #hero{
+    flex-direction: column-reverse;
+  }
+  #hero img{
+    margin-left: 0px;
+    height: 60vw;
+  }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogIn | Mail</title>
+    <link rel="stylesheet" href="../stylesheets/login.css">
+</head>
+
+<body>
+    <div id="hero">
+        <div id="loginbox">
+            <h2>Hello👋, Log In <span>YOU Mail</span></h2>
+            <form action="/login" method="post">
+                <div class="field">
+                    <div class="label-field">
+                        <label for="username">Username: </label>
+                    </div>
+                    <div class="input-field">
+                        <input class="infield" type="text" name="username">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="label-field">
+                        <label for="password">Password: </label>
+                    </div>
+                    <div class="input-field">
+                        <input class="infield" type="password" name="password">
+                    </div>
+                </div>
+                <div class="field">
+                    <input type="submit" value="LogIn Now">
+                </div>
+                <div class="field">
+                    <a href="/register">Don't have an account? <span>Sign up</span></a>
+                </div>
+            </form>
+        </div>
+        <img src="../images/login.png" alt="">
+    </div>
+</body>
+
+</html>
