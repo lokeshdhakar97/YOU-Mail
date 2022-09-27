@@ -1,0 +1,85 @@
+<div class="composeMail">
+    <div class="head-menu">
+        <h4>Send a message</h4>
+        <div class="head-icon">
+            <i class="ri-subtract-line"></i>
+            <i class="ri-fullscreen-fill"></i>
+            <i class="ri-close-fill close"></i>
+        </div>
+    </div>
+    <div class="msg-box">
+        <form action="/send-mail" method="post">
+         <div class="to">
+            <input type="email" placeholder="To" name="reciverMail">
+        </div>
+        <div class="to">
+            <input type="text" name="subject" placeholder="Subject">
+        </div>
+        <div class="message">
+            <textarea name="message" placeholder="Write your message here...."></textarea>
+        </div>
+        <div class="send">
+            <div class="btn">
+                <button>
+                    Send
+                    <i class="ri-send-plane-line"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+    </div>
+</div>
+<div id="left-pannel">
+    <div class="pannels logo">
+        <h2><span>YOU</span> Mail</h2>
+    </div>
+    <div class="close-mlp">
+        <i class="ri-arrow-left-s-line"></i>
+    </div>
+    <div class="menu-left-pannel">
+        <div class="top-mlp">
+            <i class="ri-menu-3-fill"></i>
+        </div>
+        <div class="bottom-mlp">
+            <div class="pannels logo t-center">
+                <h2><span>Y</span></h2>
+                <h2><span>O</span></h2>
+                <h2><span>U</span></h2>
+            </div>
+        </div>
+    </div>
+    <div class="pannels compose">
+        <i class="ri-edit-circle-fill"></i>
+        <h4>Compose</h4>
+    </div>
+    <div class="pannels p-2">
+        <div class="lp-2">
+            <i class="ri-mail-unread-fill"></i>
+            <a href="">Unread</a>
+        </div>
+        <div class="lp-2">
+            <i class="ri-star-fill"></i>
+            <a href="">Important</a>
+        </div>
+    </div>
+    <div class="pannels other-pannel" style="background-color: rgb(253, 213, 247); color: rgb(0, 0, 0);">
+        <i class="ri-mail-line"></i>
+        <a href="/profile">Inbox</a>
+    </div>
+    <div class="pannels other-pannel">
+        <i class="ri-send-plane-line"></i>
+        <a href="/sent-mails">Sent</a>
+        </div>
+    <div class="pannels other-pannel">
+        <i class="ri-draft-line"></i>
+        <a href="">Draft</a>
+    </div>
+    <div class="pannels other-pannel">
+        <i class="ri-delete-bin-6-line"></i>
+      <a href="">Bin</a>
+    </div>
+    <div class="pannels other-pannel">
+        <i class="ri-spam-2-line"></i>
+        <a href="">Spam</a>
+    </div>
+</div>
