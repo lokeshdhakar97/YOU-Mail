@@ -18,3 +18,48 @@ Technologies used in the project:
 *   ExpressJS
 *   MongoDB
 *   Ajax
+
+
+
+## Installation
+
+- Clone the repo 
+
+```bash
+  git clone https://github.com/lokeshdhakar97/Project-Management
+```
+- Install NPM Packages
+
+```bash
+  npm install
+```
+
+- Run 
+
+
+```bash
+  npm start
+```
+
+## Contributing
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are greatly appreciated.
+
+- If you have suggestions for adding or removing projects, feel free to open an issue to discuss it, or directly create a pull request after you edit the README.md file with necessary changes.
+
+## Creating A Pull Request
+
+- Fork the Project
+- Create your Feature Branch (git checkout -b feature/AmazingFeature)
+- Commit your Changes (git commit -m 'Add some AmazingFeature')
+- Push to the Branch (git push origin feature/AmazingFeature)
+- Open a Pull Request
+
+## Authors
+
+- [@lokeshdhakar97](https://github.com/lokeshdhakar97)
+
+
+## Feedback
+
+If you have any feedback, please reach out to us at lokeshdhakar6633@gmail.com
+
