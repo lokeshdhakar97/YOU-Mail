@@ -2,12 +2,13 @@ const express = require('express');
 const passport = require('passport');
 const router = express.Router();
 const multer = require('multer');
+const axios = require('axios');
 
 const userModel = require('../model/user');
 const mailModel = require("../model/mails");
 
 const localStrategy = require('passport-local');
-const { response } = require('express');
+
 passport.use(new localStrategy(userModel.authenticate()));
 
 const storage = multer.diskStorage({
@@ -30,32 +31,32 @@ function fileFilter(req, file, cb) {
 const upload = multer({ storage, fileFilter }).single('image');
 
 router.post("/send-mail", isLoggedIn, async function (req, res) {
-
-  const loggedInUser = await userModel.findOne({ username: req.session.passport.user })
+  const loggedInUser = await userModel.findOne({ username: req.session.passport.user });
+  const reciverUser = await userModel.findOne({ email: req.body.reciverMail });
   const createdMail = await mailModel.create({
     reciverMail: req.body.reciverMail,
-    userId: loggedInUser._id,
+    senderUserId: loggedInUser._id,
+    reciverUserId: reciverUser._id,
     message: req.body.message,
     subject: req.body.subject,
   });
   loggedInUser.sentMails.push(createdMail._id);
   loggedInUser.save();
-
-  const reciverUser = await userModel.findOne({ email: createdMail.reciverMail });
   reciverUser.recivedMails.push(createdMail._id);
   reciverUser.save();
+  console.log(reciverUser._id);
   res.redirect(req.headers.referer);
 });
 
-router.get("/check/:username" , function(req, res){
-  userModel.findOne({username: req.params.username}).then(function(user){
+router.get("/check/:username", function (req, res) {
+  userModel.findOne({ username: req.params.username }).then(function (user) {
     res.json(user);
   });
 });
 
-router.post('/setpic', async function (req, res) {
+router.post('/setpic', isLoggedIn, async function (req, res) {
   upload(req, res, async function (err) {
-    if (err){
+    if (err) {
       res.send("<h1>Hey User, Only Images Are Allowed....😖😖</h1>");
     }
     let loggedInUser = await userModel.findOne({ username: req.session.passport.user });
@@ -110,24 +111,22 @@ router.get('/profile', isLoggedIn, async function (req, res, next) {
     .populate({
       path: "recivedMails",
       populate: {
-        path: 'userId'
+        path: 'senderUserId'
       }
     });
   res.render('profile', { user: foundUser });
 });
 
 // Log Out the account which is login.
-router.get('/logout', function (req, res) {
+router.get('/logout', isLoggedIn, function (req, res) {
   req.logOut(function (err) {
     if (err) throw err;
     res.redirect('/');
   })
 })
-router.get('/sent-mails', isLoggedIn, async function (req, res, next) {
+router.get('/show/sent-mails', isLoggedIn, async function (req, res, next) {
   const foundUser = await userModel.findOne({ username: req.session.passport.user }).populate("sentMails");
-  const reciverUser = await userModel.findOne({email: foundUser.reciverMail});
-   console.log(foundUser);
-  res.render('sentMails', { user: foundUser });
+  res.json(foundUser);
 });
 // isLoggedIn Middleware
 function isLoggedIn(req, res, next) {

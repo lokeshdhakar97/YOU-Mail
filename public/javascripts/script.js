@@ -59,12 +59,16 @@
 
         document.querySelectorAll(".pannels").forEach(function (elems) {
             elems.addEventListener("click", function (dets) {
+                // dets.target.children[1].click();
                 console.log();
-                dets.target.children[1].click();
-
+                axios.get(`${dets.target.children[1].attributes.href.value}`)
+                .then((response) =>{
+                    console.log(response.data.sentMails);
+                });
+                
             })
         });
-       
+
         dark();
         composeMailBox();
         imageChange();

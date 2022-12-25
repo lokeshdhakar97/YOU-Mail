@@ -4,7 +4,11 @@ var mailModel = mongoose.Schema({
     reciverMail: String,
     subject: String,
     message: String,
-    userId: {
+    senderUserId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "user"
+    },
+    recieverUserId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "user"
     },

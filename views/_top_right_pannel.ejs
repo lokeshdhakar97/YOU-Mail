@@ -1,0 +1,32 @@
+<div class="top-right-pannel">
+    <div class="left-top">
+        <h1>Hello👋,
+            <% if(user.fullname.length> 22){%>
+                <%=user.fullname.substr(0, 19) %><abbr title="<%= user.fullname%>"
+                        style="color: rgb(71, 69, 69); font-size: 2rem; cursor: pointer;">
+                        <%="..."%>
+                    </abbr>
+                    <%}else{%>
+                        <%=user.fullname%>
+                            <%}%>
+
+        </h1>
+    </div>
+    <div class="right-top">
+        <div class="dark">
+            <i id="moon" class="ri-moon-fill both"></i>
+            <i id="sun" class="ri-sun-line both"></i>
+        </div>
+        <div class="account">
+            <form action="/setpic" id="profilepic" method="post" enctype="multipart/form-data">
+                <input type="file" name="image" id="choosepic">
+                <input type="submit" id="set">
+            </form>
+            <img src="../images/uploads/<%=user.profilePic%>" alt="">
+        </div>
+        <div class="logout">
+            <i class="ri-logout-circle-r-line"></i>
+            <a href="/logout">Log out</a>
+        </div>
+    </div>
+</div>

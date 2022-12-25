@@ -10,63 +10,20 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="../stylesheets/profile.css">
 </head>
-
+<style>
+    .pannels:nth-child(6){
+        background-color: rgb(253, 213, 247); 
+        color: rgb(0, 0, 0);
+    }
+</style>
 <body>
     <div id="main-p">
         <%- include('_left_pannel')%>
             <div id="right-pannel">
-                <div class="top-right-pannel">
-                    <div class="left-top">
-                        <h1>Hello👋,
-                            <% if(user.fullname.length> 22){%>
-                                <%=user.fullname.substr(0, 19) %><abbr title="<%= user.fullname%>"
-                                        style="color: rgb(71, 69, 69); font-size: 2rem; cursor: pointer;">
-                                        <%="..."%>
-                                    </abbr>
-                                    <%}else{%>
-                                        <%=user.fullname%>
-                                            <%}%>
-
-                        </h1>
-                    </div>
-                    <div class="right-top">
-                        <div class="dark">
-                            <i id="moon" class="ri-moon-fill both"></i>
-                            <i id="sun" class="ri-sun-line both"></i>
-                        </div>
-                        <div class="account">
-                            <form action="/setpic" id="profilepic" method="post" enctype="multipart/form-data">
-                                <input type="file" name="image" id="choosepic">
-                                <input type="submit" id="set">
-                            </form>
-                            <img src="../images/uploads/<%=user.profilePic%>" alt="">
-                        </div>
-                        <div class="logout">
-                            <i class="ri-logout-circle-r-line"></i>
-                            <a href="/logout">Log out</a>
-                        </div>
-                    </div>
-                </div>
+                    <%- include('_top_right_pannel')%>
                 <div class="bottom-right-pannel">
-                    <div class="top-bottom-rp">
-                        <div class="tools">
-                            <input type="checkbox" name="" id="check">
-                            <h6>Select All Mails</h6>
-                        </div>
-                        <div class="search-box">
-                            <i class="ri-search-line"></i>
-                            <input type="search" name="search" id="searchbox" placeholder="Search">
-                            <div class="arrow"> </div>
-                        </div>
-                        <div class="tools">
-                            <h6>1 -35 of 35</h6>
-                            <i class="ri-arrow-left-circle-fill"></i>
-                            <i class="ri-arrow-right-circle-fill"></i>
-                        </div>
-
-                    </div>
+                   <%- include('_top_bottom_rp.ejs')%>
                     <div class="bottom-bottom-rp">
-
                         <%user.recivedMails.reverse().forEach((mails)=>{%>
 
                             <div class="emails">
@@ -77,7 +34,7 @@
                                     </div>
                                     <div class="name-field">
                                         <h5>
-                                            <%= mails.userId.fullname%>
+                                            <%= mails.senderUserId.fullname%>
                                         </h5>
                                     </div>
                                     <div class="subject-field">
