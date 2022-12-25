@@ -4,7 +4,7 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="./youMail.png" alt="project-screenshot" width="400" height="400/">
+<img src="./youMail.png" alt="project-screenshot" width="100%" height="auto">
 
   
  <h2>💻 Built with</h2>
